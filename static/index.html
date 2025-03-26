@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+<h1>Hello, World!</h1>
+<div id="api-data">Loading data...</div>
+
+<script>
+    fetch('/api/data')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('api-data').textContent = 'API Response: ' + data.message;
+            console.log('API response:', data);
+        })
+        .catch(error => {
+            document.getElementById('api-data').textContent = 'Error loading data';
+            console.error('Error fetching API data:', error);
+        });
+</script>
+</body>
+</html>
