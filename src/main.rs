@@ -58,7 +58,3 @@ async fn main() -> Result<(), Error> {
         e
     })
 }
-
-fn main() {
-    println!("Hello, world!");
-}
