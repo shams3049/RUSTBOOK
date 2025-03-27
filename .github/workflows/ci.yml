@@ -43,3 +43,17 @@ jobs:
     
     - name: Build Docker image
       run: docker build -t rustbook:latest .
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Install Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        override: true
+        
+    - name: Run tests
+      run: cargo test --verbose
