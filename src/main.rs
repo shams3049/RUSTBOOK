@@ -1,10 +1,9 @@
 // Import necessary modules and crates
 use actix_files::Files; // For serving static files
-use actix_web::{web, App, HttpResponse, HttpServer, Responder, middleware}; // Actix Web framework components
-use actix_cors::Cors; // For handling Cross-Origin Resource Sharing (CORS)
+use actix_web::{middleware, web, App, HttpResponse, HttpServer, Responder}; // Actix Web framework components
+use log::info;
 use serde::Serialize; // For serializing data structures into JSON
 use std::io::Error; // For handling I/O errors
-use log::info; // For logging information
 
 // Define a struct to represent the data being sent as JSON
 #[derive(Serialize)] // Automatically derive serialization for this struct
