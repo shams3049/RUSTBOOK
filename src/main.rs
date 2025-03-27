@@ -27,9 +27,7 @@ async fn get_data() -> impl Responder {
 #[actix_web::main] // Macro to mark the async main function for Actix Web
 async fn main() -> Result<(), Error> {
     env_logger::init(); // Initialize the logger
-    unsafe {
-        std::env::set_var("RUST_LOG", "info"); // Set the logging level to "info"
-    }
+    std::env::set_var("RUST_LOG", "info"); // Set the logging level to "info"
 
     // Create and configure the HTTP server
     HttpServer::new(|| {
