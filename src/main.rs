@@ -1,7 +1,7 @@
 // Import necessary modules and crates
+use actix_cors::Cors; // Import Cors from actix_cors crate
 use actix_files::Files; // For serving static files
 use actix_web::{middleware, web, App, HttpResponse, HttpServer, Responder}; // Actix Web framework components
-use actix_cors::Cors; // Import Cors from actix_cors crate
 use log::info;
 use serde::Serialize; // For serializing data structures into JSON
 use std::io::Error; // For handling I/O errors
@@ -35,7 +35,8 @@ async fn main() -> Result<(), Error> {
         let cors = Cors::default()
             .allow_any_origin()
             .allow_any_method()
-            .allow_any_header();
+            .allow_any_header()
+            .max_age(3600);
 
         // Build the Actix Web application
         App::new()
